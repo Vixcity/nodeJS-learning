@@ -1,0 +1,43 @@
+const fs = require('fs');
+
+// 读取流
+// let rs = fs.createReadStream('./app.js', {
+//     // 每次 on data 的一个数据量
+//     highWaterMark: 100
+// })
+
+// let count = 1
+// rs.on('data', chunk => {
+//     console.log(chunk.toString())
+//     console.log(count++)
+// })
+
+// rs.on('end', () => {
+//     console.log('读取完成')
+// })
+
+
+// 写入流
+// let ws = fs.createWriteStream('./helloWorld.txt')
+
+// let num = 0
+// let timer = setInterval(() => {
+//     if (num < 10) {
+//         ws.write(num + '\n')
+//         num++
+//     } else {
+//         ws.end('写入完成')
+//         clearInterval(timer)
+//     }
+// }, 200)
+
+// ws.on('finish', () => {
+//     console.log('写入完成')
+// })
+
+
+// 管道流，从数据的来源，通过管道，一段一段的流向目标
+let rs = fs.createReadStream('./app.js')
+let ws = fs.createWriteStream('./helloWorld.txt')
+// 读取流的pipe方法，写入到写入流里面
+rs.pipe(ws)
