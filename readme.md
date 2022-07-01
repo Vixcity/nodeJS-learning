@@ -176,3 +176,114 @@ let ws = fs.createWriteStream('./helloWorld.txt')
 // 读取流的pipe方法，写入到写入流里面
 rs.pipe(ws)
 ```
+
+### path
+
+<http://nodejs.cn/api/path.html>
+
+```js
+const path = require('path');
+
+console.log(path.basename('/app.js','.js')) // app.js 后面的为省略后缀名
+console.log(path.dirname('/app.js')) // /
+console.log(path.extname('app.js')) // .js
+console.log(path.join('/nodeJS-learning/','/app.js')) // 拼接 \nodeJS-learning\app.js
+console.log(path.normalize('/nodeJS-learning//app.js')) // 规范化路径 \nodeJS-learning\app.js
+console.log(path.resolve('./app.js')) // 绝对路径 C:\Users\47072\Desktop\project\nodeJS-learning\app.js
+let pathObj = path.parse("/nodeJS-learning/app.js") // 将路径转化为对象
+console.log(pathObj) 
+console.log(path.format(pathObj)) // 将对象转化为路径
+console.log(path.sep) // 系统路径的分隔符
+console.log(path.win32.sep) // window下的分隔符
+console.log(__filename) // 当前所在路径绝对目录 是绝对正确的 resolve 执行的地方不同可能是会有错误的
+console.log(__dirname) // 当前目录绝对目录
+```
+
+### 事件触发器
+
+<http://nodejs.cn/api/events.html>
+
+```js
+const EventEmitter = require('events')
+
+class MyEmitter extends EventEmitter { }
+
+let myEmitter = new MyEmitter()
+
+myEmitter.on('hi', (a,b) => {
+    console.log('触发了事件',a+b)
+})
+
+myEmitter.once('once', (a,b) => {
+    console.log('触发了一次',a+b)
+})
+
+// 触发事件
+myEmitter.emit('hi',1,2)
+
+// 只会触发一次
+myEmitter.emit('once',1,2)
+myEmitter.emit('once',1,2)
+
+let fn1 = (a,b) => {
+    console.log('带参',a+b)
+}
+
+let fn2 = () => {
+    console.log('不带参')
+}
+
+myEmitter.on('hi1', fn1)
+myEmitter.on('hi1', fn2)
+
+// 移除数组
+// myEmitter.removeListener('hi1',fn1)
+// 移除全部数组
+myEmitter.removeAllListeners('hi1')
+myEmitter.emit('hi1',1,2)
+```
+
+### util
+
+<http://nodejs.cn/api/util.html>
+
+```js
+const util = require('util');
+const fs = require('fs');
+
+async function hello() {
+    return 'hello World!'
+}
+
+// 将异步函数转换成为有回调风格的函数
+let helloCallBack = util.callbackify(hello)
+
+helloCallBack((err, res) => {
+    if (err) throw err
+    console.log(res)
+})
+
+// 转换成为promise版本的函数
+let stat = util.promisify(fs.stat)
+let stat1 = util.promisify(fs.stat)
+
+stat('./app.js').then(res => {
+    console.log(res)
+}).catch(err => {
+    console.log(err)
+})
+
+async function statFn() {
+    try {
+        let stats = await stat1('./app.js')
+        console.log(stats)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+statFn()
+
+// 判断值是否为date类型
+console.log(util.types.isDate(new Date()), util.types.isDate(1))
+```
