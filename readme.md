@@ -287,3 +287,34 @@ statFn()
 // 判断值是否为date类型
 console.log(util.types.isDate(new Date()), util.types.isDate(1))
 ```
+
+### http基本知识
+
+---
+
+- GET 请求指定的⻚⾯信息，并返回实体主体
+- HEAD 类似于get请求，只不过返回的响应中没有具体的内容，⽤于获取报头
+- POST 向指定资源提交数据进⾏处理请求。数据被包含在请求体中。
+- PUT 从客户端向服务器传送的数据取代指定的⽂档的内容
+- DELETE 请求服务器删除指定的⻚⾯
+- CONNECT HTTP/1.1协议中预留给能够将连接改为管道⽅式的代理服务器。
+- OPTIONS 允许客户端查看服务器的性能
+- TRACE 回显服务器收到的请求，主要⽤于测试或诊断
+
+---
+
+| 应答头 | 说明 |
+| :--   | :-- |
+| Allow | 服务器⽀持哪些请求⽅法（如get、post等）。
+| Content-Encoding| ⽂档的编码⽅法。只有在解码之后才可以得到Content-Type头指定的内容类型。利⽤gzip压缩能减少HTML⽂档的下载时间。
+| Content-Length|  表示内容⻓度。只有当浏览器使⽤持久http连接时才需要这个数据。
+| Content-Type | 表示⽂档属于什么MIME(文件)类型。
+| Date | 当前的GMT时间。
+| Expires | 资源什么时候过期，不再缓存，会重新向服务器请求页面。
+| Last-Modified | ⽂档最后改动时间。
+| Location | 重定向的地址。
+| Server | 服务器的名字。
+| Set-Cookie | 设置和⻚⾯关联的Cookie。
+| WWW-Authenticate | 定义了使⽤何种验证⽅式去获取对资源的链接。
+
+---
