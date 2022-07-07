@@ -1,4 +1,6 @@
-# 项目相关
+# NodeJS学习内容
+
+## 项目相关
 
 ```bash
 # 初始化项目
@@ -318,3 +320,45 @@ console.log(util.types.isDate(new Date()), util.types.isDate(1))
 | WWW-Authenticate | 定义了使⽤何种验证⽅式去获取对资源的链接。
 
 ---
+
+#### 常⻅的http状态码
+
+- 200 请求成功
+- 301 资源被永久转移到其他URL
+- 404 请求的资源（⽹⻚等）不存在
+- 500 内部服务器错误
+
+---
+
+| 分类 | 分类描述                                       |
+| :--- | ---------------------------------------------- |
+| 1**  | 信息，服务器收到请求，需要请求者继续执⾏操作   |
+| 2**  | 成功，操作被成功接收并处理                     |
+| 3**  | 重定向，需要进⼀步的操作以完成请求             |
+| 4**  | 客户端错误，请求包含语法错误或⽆法完成请求     |
+| 5**  | 服务器错误，服务器在处理请求的过程中发⽣了错误 |
+
+---
+
+#### Content-Type 内容类型
+
+常⻅的媒体格式类型如下
+
+- text/html:HTML格式
+- text/plain:纯⽂本格式
+- text/xml:XML格式
+- image/gif:gif图⽚格式
+- image/jpeg:jpg图⽚格式
+- image/png:png图⽚格式
+- multipart/form-data:需要在表单中进⾏⽂件上传时，就需要使⽤该格式
+
+以application开头的媒体格式类型：
+
+- application/xhtml+xml:XHTML格式
+- application/xml:XML数据格式
+- application/atom+xml:Atom XML聚合格式
+- application/json:JSON数据格式
+- application/pdf:pdf格式
+- application/msword:Word⽂档格式
+- application/octet-stream:⼆进制流数据（常⻅的⽂件下载)
+- application/x-www-form-urlencoded:表单中默认的encType,表单数据被编码为key/value格式发送到服务器
