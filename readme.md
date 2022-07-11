@@ -17,6 +17,7 @@ node app.js
 
 - <https://www.lodashjs.com/>
 - <https://www.npmjs.com/package/chokidar>
+- <https://github.com/cheeriojs/cheerio/wiki/Chinese-README>
 
 ## 基础知识
 
@@ -362,3 +363,56 @@ console.log(util.types.isDate(new Date()), util.types.isDate(1))
 - application/msword:Word⽂档格式
 - application/octet-stream:⼆进制流数据（常⻅的⽂件下载)
 - application/x-www-form-urlencoded:表单中默认的encType,表单数据被编码为key/value格式发送到服务器
+
+### 搭建Http服务器
+
+<http://nodejs.cn/learn/build-an-http-server>
+
+```js
+const http = require('http');
+
+const serve = http.createServer((req, res) => {
+    // 写响应头的一些信息
+    // 会执行两次请求，一次是页面，一次是favicon.ico
+    res.writeHead(200, { 'content-type': 'text/html' })
+    res.end('<h1>hello world</h1>')
+})
+
+// 监听了3000端口
+serve.listen(3000, () => {
+    console.log('监听了3000端口')
+})
+```
+
+### 实战
+
+```js
+// 简易爬虫
+// 链接如果是http就引入http
+// 链接如果是https就引入http
+const http = require('https');
+const fs = require('fs');
+// 可以在Node中进行DOM操作，类似JQuery
+const cheerio = require('cheerio');
+
+http.get('https://vixcity.vercel.app/', (res) => {
+    res.setEncoding('utf8')
+
+    let html = ''
+    res.on('data', chunk => {
+        html += chunk
+    })
+
+    res.on('end', () => {
+        console.log(html)
+        // 加载html代码，实现JQuery的DOM操作
+        const $ = cheerio.load(html)
+        // 获取title元素的文本
+        console.log($('title').text())
+        fs.writeFile('./index.html', html, (err) => {
+            if (err) throw err
+            console.log('爬虫爬取成功')
+        })
+    })
+})
+```
