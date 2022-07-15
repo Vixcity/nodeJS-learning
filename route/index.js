@@ -23,6 +23,10 @@ function handleRequest(req, res) {
         let resultData = updateUser(urlObj.query.id, req.body)
         return resultData
     }
+    
+    if (urlObj.pathname === '/api/getUserList' && req.method === "GET") {
+        return []
+    }
 }
 
 module.exports = handleRequest
