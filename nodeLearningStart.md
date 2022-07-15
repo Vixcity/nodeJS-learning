@@ -18,11 +18,15 @@ node app.js
 - <https://www.lodashjs.com/>
 - <https://www.npmjs.com/package/chokidar>
 - <https://github.com/cheeriojs/cheerio/wiki/Chinese-README>
+- <https://www.npmjs.com/package/mysql>
 
 nodemon - 自动重启
 
 - <https://github.com/remy/nodemon/blob/master/doc/requireable.md>
 - <https://github.com/remy/nodemon/blob/master/doc/events.md#Using_nodemon_as_child_process>
+
+数据库
+[数据库模块用法](https://www.jianshu.com/p/6a9caa0930d3?u_atoken=19d81abe-26f8-40ae-8250-0b8e9b008062&u_asession=01Po9spBp3X7q6IlcadbgrWTeK6zvwo6msEGjGP8oOO382bIZ8Z8WdqVlkz8_869b4X0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K8cL0hsNR7w0bNEwvVME9puMKWrbBzYAhXhkL4v5_cjQmBkFo3NEHBv0PZUm6pbxQU&u_asig=05WNt_hYBhw9zV7ayn6DKF9V7sEHEtPoCNdSDUO9xd8YSpgOfh_GUHqmY8ORrYn4fgqflfOKiNJHHbVdW-j4Cbhg5awcY9Wmw8ACmHClGef3NCPzvppD4Abx-sR4z38qhtfqlwLagJa0Hqll2j1qil3VXZ8DNFa2G3Wj1GF6lgOrP9JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzaQNbc1n41RhPu1iIiVUlXLGEHO4eRt4dhLiOqeZeXAXdf9JIAkyKervFWgmMgV8j-3h9VXwMyh6PgyDIVSG1W8pItgBn8boh-1pRne_4z555wXlYElZ4cq7YXSAdlfppYXEaoGkAsF9z55za78rI5JvgtmdXIKTcM-Vsg4gF3hqmWspDxyAEEo4kbsryBKb9Q&u_aref=YNBPPEbse%2FRep6jcUVBk6ZIoMMg%3D)
 
 ## 基础知识
 
