@@ -165,3 +165,9 @@ pool.getConnection((err, conn) => {
     })
 })
 ```
+
+## 大体流程
+
+先到server层，这一层是进行分发的 => 然后去路由层，这一层进行寻找对应controller层操作 => 在然后去controller层，这一层是进行数据库操作的
+
+增删改查的方法我写在注释当中
