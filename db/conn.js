@@ -1,5 +1,16 @@
 const mysql = require("mysql");
 const dbOption = require("../config/db_config");
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb://localhost/user_test', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('连接数据库成功')
+}).catch(err => {
+  console.log(err, '连接数据库失败')
+})
+
 
 // 创建连接池
 const pool = mysql.createPool(dbOption);

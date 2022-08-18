@@ -19,6 +19,7 @@ node app.js
 - <https://www.npmjs.com/package/chokidar>
 - <https://github.com/cheeriojs/cheerio/wiki/Chinese-README>
 - <https://www.npmjs.com/package/mysql>
+- <https://mongoosejs.com/docs/connections.html>
 
 nodemon - 自动重启
 
