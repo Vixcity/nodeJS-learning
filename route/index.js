@@ -9,8 +9,8 @@ const {
 function handleRequest(req, res) {
   let urlObj = url.parse(req.url, true);
 
-  if (urlObj.pathname === "/" && req.method === "GET") {
-    let resultData = getUserList();
+  if (urlObj.pathname === "/list/user" && req.method === "GET") {
+    let resultData = getUserList(urlObj.query);
     return resultData;
   }
 
@@ -22,11 +22,12 @@ function handleRequest(req, res) {
   }
 
   if (urlObj.pathname === "/delete/user" && req.method === "POST") {
-    let resultData = deleteUser(req.query.id);
+    let resultData = deleteUser(urlObj.query.id);
     return resultData;
   }
 
   if (urlObj.pathname === "/update/user" && req.method === "POST") {
+    // 去执行操作，进到对应的controller里面
     let resultData = updateUser(urlObj.query.id, req.body);
     return resultData;
   }

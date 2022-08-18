@@ -14,13 +14,13 @@
 
 浏览器同源策略：协议+域名+端⼝三者相同就是同源。
 
-http://www.baidu.com/a.js http://www.baidu.com/b.js
+<http://www.baidu.com/a.js> <http://www.baidu.com/b.js>
 
-https://www.baidu.com/a.js http://www.baidu.com/a.js 协议不同
+<https://www.baidu.com/a.js> <http://www.baidu.com/a.js> 协议不同
 
-https://www.baidu.com:8080/a.js https://www.baidu.com/a.js 端⼝不同
+<https://www.baidu.com:8080/a.js> <https://www.baidu.com/a.js> 端⼝不同
 
-https://www.baidu.com:8080/a.js https://www.a.com:8080/a.js 域名不同
+<https://www.baidu.com:8080/a.js> <https://www.a.com:8080/a.js> 域名不同
 
 跨域：协议、域名、端⼝三者任意⼀个不同就是跨域。
 
@@ -47,6 +47,7 @@ const server = http.createServer((req, res) => {
     
     // 如果需要指定地址，就这样写
     res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500")
+    // 注意，这里的 res.writeHead 不可以重复写多次，否则服务端会弹出一个警告
     res.writeHead(200, { "content-type": 'application/json;charset=UTF-8' })
 
     getPostData(req).then(data => {
